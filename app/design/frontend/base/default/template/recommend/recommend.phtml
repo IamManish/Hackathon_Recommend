@@ -1,0 +1,41 @@
+<?php
+
+$results = $this->getRecommendedProduct();
+?>
+
+<div class="product-essential">
+    <div class="product-name">
+        <h1 itemprop="name"><?php echo $this->__('recommedation'); ?></h1>
+    </div>
+    <?php
+
+    /**
+     * Print out the results
+     */
+
+
+    if(count($results)) {
+        ?>
+        <ul>
+            <?php
+        foreach ($results as $result) {
+            ?>
+            <li>
+                <?php echo $result['name']; ?>
+            </li>
+            <?php
+        }
+        ?>
+            </ul>
+            <?php
+    } else {
+        ?>
+        <div class="product-name">
+            <h1 itemprop="name"><?php echo $this->__('No recommedation is available'); ?></h1>
+        </div>
+        <?php
+    }
+
+    ?>
+
+</div>
